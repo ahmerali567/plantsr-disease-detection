@@ -65,9 +65,7 @@ Unlike conventional SR methods (ESRGAN, Bicubic) that optimize for visual qualit
 
 ---
 
-## 🏗️ Architecture: The Joint-Optimization Secret
 
-┌─────────────────────────────────────────────────────────────┐│                    INPUT: Low-Res Image (128×128)           │└────────────────────────────┬────────────────────────────────┘│┌────────▼────────┐│  Task-Aware     ││  Generator      ││  (RRDB-based)   │└────────┬────────┘│┌────────▼────────────────────┐│  Super-Resolved Output      ││  (512×512)                  │└────┬─────────────────┬──────┘│                 │┌──────────▼──────┐   ┌─────▼──────────┐│  Pixel Loss     │   │  Disease       ││  (MSE)          │   │  Classifier    │└──────────┬──────┘   └─────┬──────────┘│                 ││          ┌──────▼──────┐│          │  Task Loss  ││          │  (CE)       ││          └──────┬──────┘│                 │┌────▼─────────────────▼────┐│   Joint Loss Function:     ││   L = L_pixel + λ·L_task  │└────────────────────────────┘
 ### 🧠 Loss Function Logic
 $$L_{total} = L_{pixel} + \lambda \cdot L_{task}$$
 
@@ -148,48 +146,13 @@ Epoch 5:  82.5%  ████████████░░░░░░░░
 Epoch 10: 89.1%  ██████████████████░░
 Epoch 15: 95.3%  ███████████████████░
 Epoch 20: 98.85% ████████████████████ ✓
-Loss CurvesG-Loss Trajectory:
-0.85 ┤
-0.60 ┤╮
-0.35 ┤╰─╮         ╭╮
-0.10 ┤  ╰────────╯╰────────────────────────────────
-     └┬─────┬─────┬─────┬─────┬────────────────────
-      1     5    10    15    20  (Epochs)
+📈 Training Strategy: Three-Phase ApproachPhase I: Baseline Reconstruction (Epochs 1-10) - Focus on basic geometry using Pixel Loss.  Phase II: Task-Aware Optimization (Epochs 11-15) - Introduction of classifier feedback ($\lambda=0.5$).  Phase III: Fine-Tuning (Epochs 16-20) - Artifact removal and crystal clarity.  
+👤 Author
+Ahmer Ali
+Sindh Madressatul Islam University (SMIU)
 
-C-Loss Trajectory (Log Scale):
-1.00 ┤╮
-0.10 ┤╰╮
-0.01 ┤ ╰─────╮
-0.001┤       ╰──────────────────────────────────────
-     └┬─────┬─────┬─────┬─────┬────────────────────
-      1     5    10    15    20  (Epochs)
-Confidence Score Distribution (Test Set)[95-100%]: ████████████████████████████████ 99.5% (3,918 images)
-[85-95%]:  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  0.4% (16 images)
-[<85%]:    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  0.1% (4 images)
-🛠️ Project Structureplantsr-disease-detection/
-├── data/
-│   └── raw/
-│       └── SLIF-Brinjal/
-│           └── Phase_I_Dataset/          # 8,987 leaf images
-├── models/                               # Saved checkpoints
-│   ├── task_aware_gen_epoch_20.pth      # Final Generator
-│   └── task_aware_classifier_epoch_20.pth
-├── results/                              # Visual outputs
-│   ├── thesis_panel_cls_067.png         # Comparison panels
-│   └── wandb_dashboard_screenshot.png
-├── src/
-│   ├── model_task_aware.py              # Architecture definitions
-│   ├── train_task_aware.py              # Three-phase training
-│   ├── predict_disease.py               # Inference script
-│   ├── test_final_presentation.py       # Thesis visualization
-│   └── sync_to_wandb.py                 # Metrics logging
-├── requirements.txt                      # Python dependencies
-├── README.md                            # This file
-└── LICENSE                              # MIT License
-🔮 Future WorkShort-term (6 months): Implement full PSNR/SSIM evaluation and deploy on NVIDIA Jetson.Medium-term (1 year): Extend to multi-crop support (tomato, potato) via transfer learning.Long-term (2-3 years): Integration with autonomous sprayer drones for closed-loop treatment.🎓 Research Context & PublicationsDiscover AI (2026): "A systematic review of deep learning and super resolution techniques..."Scientific Data (2026): "High-Resolution Leaf Image Sequences with Geometric Alignment..."Plant Pathology Journal (2026): "Deep Learning for Plant Disease Detection: A Comprehensive Review"👤 AuthorAhmer Ali Bachelor's in Artificial Intelligence Sindh Madressatul Islam University (SMIU)📧 Email: ahmeralitms@gmail.com🔗 LinkedIn: linkedin.com/in/ahmerali567🐙 GitHub: @ahmerali567📚 CitationCode snippet@software{ali2026plantsr,
-  author = {Ali, Ahmer},
-  title = {Task-Aware Super-Resolution for Plant Disease Detection},
-  year = {2026},
-  publisher = {GitHub},
-  url = {[https://github.com/ahmerali567/plantsr-disease-detection](https://github.com/ahmerali567/plantsr-disease-detection)}
-}
+📧 Email: ahmeralitms@gmail.com
+
+🔗 LinkedIn: linkedin.com/in/ahmerali567
+
+🐙 GitHub: @ahmerali567
