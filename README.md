@@ -107,7 +107,7 @@ $$L_{total} = L_{pixel} + \lambda \cdot L_{task}$$
 
 ### Installation
 
-```bash
+
 # Clone the repository
 git clone [https://github.com/ahmerali567/plantsr-disease-detection.git](https://github.com/ahmerali567/plantsr-disease-detection.git)
 cd plantsr-disease-detection
