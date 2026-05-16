@@ -1,14 +1,12 @@
 🌿 Task-Aware Super-Resolution for Plant Disease Detection
 Cross-Scale Disease Diagnostics from UAV to Leaf-Level
-<img width="1014" height="470" alt="Screenshot 2026-05-07 014804" src="https://github.com/user-attachments/assets/0f37496b-0a79-4598-ac0e-3dcde2661748" />
-
-<img width="1014" height="474" alt="Screenshot 2026-05-07 014652" src="https://github.com/user-attachments/assets/7f6fe771-0a42-4511-9acc-7e9656822db8" />
-
-<img width="1005" height="467" alt="Screenshot 2026-05-07 014309" src="https://github.com/user-attachments/assets/e347261d-65be-482e-bd35-1eeb2261dd0e" />
-
+Show Image
+Show Image
+Show Image
+Show Image
+Show Image
 
 🎯 Project Overview
-Current wildfire prediction models often rely on deterministic outputs that fail to capture the chaotic and stochastic nature of fire progression. But wait, this is about plants! 🌱
 Deep learning models achieve >95% accuracy on controlled leaf-level datasets, but their performance drops dramatically when applied to UAV (drone) or field-scale imagery due to:
 
 ❌ Low spatial resolution (128×128 pixels or lower)
@@ -125,7 +123,8 @@ python src/test_final_presentation.py
 
 # Quick disease prediction on random image
 python src/predict_disease.py
- WandB Dashboard Sync
+Output: Thesis-ready comparison panels saved in results/
+3. WandB Dashboard Sync
 bash# Upload training metrics to Weights & Biases
 python src/sync_to_wandb.py
 Access interactive loss curves, confidence plots, and hyperparameter logs.
@@ -332,7 +331,12 @@ Open a Pull Request
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+🙏 Acknowledgments
 
+Sindh Madressatul Islam University (SMIU) - Department of Computer Science
+Mendeley Data Community - For providing the SLIF-Brinjal dataset
+PyTorch Team - For the excellent deep learning framework
+Weights & Biases - For experiment tracking and visualization
 
 
 👤 Author
@@ -343,11 +347,24 @@ Sindh Madressatul Islam University (SMIU)
 🔗 LinkedIn: linkedin.com/in/ahmerali567
 🐙 GitHub: @ahmerali567
 
+📞 Contact & Support
+
+Issues: GitHub Issues
+Discussions: GitHub Discussions
+Email: ahmeralitms@gmail.com
 
 
+🌟 Star History
+Show Image
 
-
-
+📚 Citation
+If you use this work in your research, please cite:
+bibtex@software{ali2026plantsr,
+  author = {Ali, Ahmer},
+  title = {Task-Aware Super-Resolution for Plant Disease Detection},
+  year = {2026},
+  publisher = {GitHub},
+  url = {https://github.com/ahmerali567/plantsr-disease-detection}
 }
 
 <div align="center">
