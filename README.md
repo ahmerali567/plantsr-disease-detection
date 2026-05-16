@@ -13,6 +13,11 @@
 ## 🎯 Project Overview
 Deep learning models achieve **>95% accuracy** on controlled leaf-level datasets, but their performance drops dramatically when applied to UAV (drone) or field-scale imagery due to:
 
+<img width="1014" height="470" alt="Screenshot 2026-05-07 014804" src="https://github.com/user-attachments/assets/5f581296-c289-4d49-857c-acec06cbccb9" />
+<img width="1005" height="467" alt="Screenshot 2026-05-07 014309" src="https://github.com/user-attachments/assets/29890b7d-6c3e-4434-969b-81d493ce9f58" />
+
+
+
 * ❌ **Low spatial resolution** (128×128 pixels or lower)
 * ❌ **Motion blur** and atmospheric interference
 * ❌ **Domain shift** from lab to field conditions
@@ -74,6 +79,9 @@ $$L_{total} = L_{pixel} + \lambda \cdot L_{task}$$
 * **$\lambda = 0.5$:** Task weight for balancing sharpness and accuracy.
 
 > **Why It Works:** Traditional SR optimizes for PSNR (human perception). Our model optimizes for diagnostic saliency (machine interpretation).
+
+<img width="1442" height="852" alt="Screenshot 2026-05-07 013808" src="https://github.com/user-attachments/assets/f643e30a-550f-421d-bc06-ac7634344928" />
+
 
 ---
 
